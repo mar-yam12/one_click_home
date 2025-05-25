@@ -11,7 +11,7 @@ SessionLocal = sessionmaker(bind=engine, autoflush=False, autocommit=False)
 def init_db():
     Base.metadata.create_all(bind=engine)
 
-# USER CRUD
+
 def get_user(email: str):
     db = SessionLocal()
     try:
@@ -42,4 +42,4 @@ def get_all_skilled_persons():
     finally:
         db.close()
 
-# Additional functions for Requests, Ratings, etc. can be added here.
+

@@ -31,7 +31,7 @@ def login_section():
             st.session_state.email = user.email
             st.session_state.user_type = user.type
             st.success("Login successful!")
-            st.rerun()  # Refresh UI after login
+            st.rerun()  
         else:
             st.error("Invalid credentials!")
 
@@ -49,7 +49,7 @@ def login_section():
 
     if st.sidebar.button("Register"):
         if new_name and new_email and new_password:
-            from auth import create_user  # avoid circular import
+            from auth import create_user  
             try:
                 user = create_user(new_name, new_email, new_password, user_type, contact, city)
                 if image:
@@ -66,7 +66,7 @@ def logout():
     st.session_state.logged_in = False
     st.session_state.email = None
     st.session_state.user_type = None
-    st.rerun()  # Refresh UI after logout
+    st.rerun()  
 
 def main_app():
     st.title("🏠 One-Click Home Services")
@@ -127,7 +127,7 @@ def main_app():
                     rate_service(st.session_state.email, skilled.email, rating, feedback)
                     st.success("Thanks for your feedback!")
 
-# Run the app logic
+
 if not st.session_state.logged_in:
     login_section()
 else:

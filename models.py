@@ -9,11 +9,11 @@ class User(Base):
     name = Column(String)
     email = Column(String, unique=True, index=True)
     password = Column(String)
-    type = Column(String)  # "User" or "Skilled Person"
+    type = Column(String)  
     contact = Column(String)
     city = Column(String)
 
-    # Relationships (optional, if you want)
+
     requests = relationship("Request", back_populates="user")
 
 

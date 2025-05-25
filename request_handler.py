@@ -4,7 +4,6 @@ from models import Request, User
 def add_request(request_data: dict):
     db = SessionLocal()
     try:
-        # You can extend this function as needed
         req = Request(
             user_id=request_data.get("user_id"),
             service_type=request_data.get("service"),
@@ -16,7 +15,6 @@ def add_request(request_data: dict):
         db.close()
 
 def book_service(user_email, skilled_email, service):
-    # Example implementation, you'll need to get user_id from emails
     db = SessionLocal()
     try:
         user = db.query(User).filter(User.email == user_email).first()
